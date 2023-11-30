@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Ajouter un bloc</h2>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group row">
+      <label for="idBloc" class="col-sm-2 col-form-label">ID du bloc:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="idBloc" [(ngModel)]="bloc.idBloc" name="idBloc" required pattern="[0-9]*">
+        <div *ngIf="form.controls['idBloc'].invalid && (form.controls['idBloc'].dirty || form.controls['idBloc'].touched)">
+          <small class="text-danger" *ngIf="form.controls['idBloc'].hasError('required')">L'ID du bloc est requis.</small>
+          <small class="text-dy
+         anger" *ngIf="form.controls['idBloc'].hasError('pattern')">L'ID du bloc doit contenir uniquement des chiffres.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="nomBloc" class="col-sm-2 col-form-label">Nom du bloc:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="nomBloc" [(ngModel)]="bloc.nomBloc" name="nomBloc" required pattern="^Bloc\s.+$">
+        <div *ngIf="form.controls['nomBloc'].invalid && (form.controls['nomBloc'].dirty || form.controls['nomBloc'].touched)">
+          <small class="text-danger" *ngIf="form.controls['nomBloc'].hasError('required')">Le nom du bloc est requis.</small>
+          <small class="text-danger" *ngIf="form.controls['nomBloc'].hasError('pattern')">Le nom du bloc doit commencer par "Bloc" suivi d'un espace et d'une chaîne de caractères.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="capaciteBloc" class="col-sm-2 col-form-label">Capacité du bloc:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="capaciteBloc" [(ngModel)]="bloc.capaciteBloc" name="capaciteBloc" required>
+        <div *ngIf="form.controls['capaciteBloc'].invalid && (form.controls['capaciteBloc'].dirty || form.controls['capaciteBloc'].touched)">
+          <small class="text-danger" *ngIf="form.controls['capaciteBloc'].hasError('required')">La capacité du bloc est requise.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="foyer" class="col-sm-2 col-form-label">Foyer:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="foyer" [(ngModel)]="bloc.foyer" name="foyer" required>
+        <div *ngIf="form.controls['foyer'].invalid && (form.controls['foyer'].dirty || form.controls['foyer'].touched)">
+          <small class="text-danger" *ngIf="form.controls['foyer'].hasError('required')">Le champ Foyer est requis.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">Ajouter le bloc</button>
+        <button type="reset" class="btn btn-secondary ml-2">Réinitialiser</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<p>updatebloc works!</p>
+<form>
+    <div  [hidden]="ajout">
+        <label>ID Bloc</label>
+        <input type="text" [readOnly]="!ajout" [(ngModel)]="bloc.idBloc" name="idDepartement" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Bloc :</label>
+        <input type="text" [(ngModel)]="bloc.nomBloc" name="nomDepartement" class="form-control"
+               placeholder="Entrez un nom de département...">
+    </div>
+    <div>
+        <label>Capacite:</label>
+        <input type="text" [(ngModel)]="bloc.capaciteBloc" name="Description" class="form-control"
+               placeholder="Entrez la Description...">
+    </div>
+    <div>
+        <label>Foyer:</label>
+        <input type="text" [(ngModel)]="bloc.foyer" name="Description" class="form-control"
+               placeholder="Entrez la Description...">
+    </div>
+    <div class="mt-2">
+        <!-- <button type="submit" [disabled]="!departement.nomDepart" class="btn btn-success"
+            (click)="saveDepartement()">Ajouter</button> -->
+        <button type="submit" [disabled]="!bloc.nomBloc" class="btn btn-success" (click)="saveBloc()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+        </button>
+
+    </div>
+</form>

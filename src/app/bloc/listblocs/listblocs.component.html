@@ -1,0 +1,36 @@
+<p>listblocs works!</p>
+
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <app-updatebloc [bloc]="updatebloc"
+                            (blocUpdated)= "blocUpdated($event)"
+                            [ajout]="ajout">
+    </app-updatebloc>
+  </div>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>IdBloc</th>
+          <th>NomBloc</th>
+          <th>Capacite</th>
+          <th>Foyer</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let b of blocs">
+        <tr>
+          <td>{{b.idBloc}}</td>
+          <td>{{b.nomBloc}}</td>
+          <td>{{b.capaciteBloc}}</td>
+          <td>{{b.foyer}}</td>
+          <td><a class="btn btn-success" (click)="updateb(b)">Editer</a>
+          <button class="btn btn-danger" (click)="deleteb(b.idBloc)">Supprimer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
