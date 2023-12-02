@@ -1,16 +1,8 @@
 {
   "blocs": [
-    {
-      "idBloc": 1,
-      "nomBloc": "bds",
-      "capaciteBloc": 22,
-      "foyer": "hfduvd"
-    },
-    {
-      "idBloc": 5,
-      "nomBloc": "bHFD",
-      "capaciteBloc": 122,
-      "foyer": "hFFSvd"
-    }
+    { "idBloc": 1, "nomBloc": "Bloc A", "capaciteBloc": 100, "foyer": 1 },
+    { "idBloc": 2, "nomBloc": "Bloc B", "capaciteBloc": 150, "foyer": 2 },
+    { "idBloc": 3, "nomBloc": "Bloc C", "capaciteBloc": 120, "foyer": 1 }
   ]
 }
+

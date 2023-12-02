@@ -1,33 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Bloc } from 'src/app/bloc/models/bloc';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class BlocService {
-    private apiUrl = 'http://localhost:8089/blocs'; // URL backend Spring
+  private apiUrl = 'http://localhost:3000/blocs'; // URL JSON Server
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-    getAllBlocs(): Observable<any> {
-        return this.http.get(`${this.apiUrl}/retrieveall`);
-    }
+  getAllBlocs(): Observable<Bloc[]> {
+    return this.http.get<Bloc[]>(`${this.apiUrl}`);
+  }
 
-    addBloc(blocData: any): Observable<any> {
-        return this.http.post(`${this.apiUrl}/addbloc`, blocData);
-    }
+  addBloc(blocData: Bloc): Observable<Bloc> {
+    return this.http.post<Bloc>(`${this.apiUrl}`, blocData);
+  }
 
-    updateBloc(idBloc: number, updatedData: any): Observable<any> {
-        return this.http.put(`${this.apiUrl}/updatebloc/${idBloc}`, updatedData);
-    }
+  updateBloc(idBloc: number, updatedData: Bloc): Observable<Bloc> {
+    return this.http.put<Bloc>(`${this.apiUrl}/${idBloc}`, updatedData);
+  }
 
-    deleteBloc(idBloc: number): Observable<any> {
-        return this.http.delete(`${this.apiUrl}/deletebloc/${idBloc}`);
-    }
-
-
-}
-
-export class BlocserviceService {
+  deleteBloc(idBloc: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${idBloc}`);
+  }
 }

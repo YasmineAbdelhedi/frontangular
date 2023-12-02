@@ -2,10 +2,7 @@
 
 <div class="container">
   <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
-    <app-updatebloc [bloc]="updatebloc"
-                            (blocUpdated)= "blocUpdated($event)"
-                            [ajout]="ajout">
-    </app-updatebloc>
+
   </div>
   <div class="card shadow mb-4">
     <div class="card-body">
@@ -19,14 +16,14 @@
           <th>Actions</th>
         </tr>
         </thead>
-        <tbody *ngFor="let b of blocs">
+        <tbody *ngFor="let b of blocdata">
         <tr>
           <td>{{b.idBloc}}</td>
           <td>{{b.nomBloc}}</td>
           <td>{{b.capaciteBloc}}</td>
           <td>{{b.foyer}}</td>
-          <td><a class="btn btn-success" (click)="updateb(b)">Editer</a>
-          <button class="btn btn-danger" (click)="deleteb(b.idBloc)">Supprimer</button>
+          <td><a class="btn btn-success" >Editer</a>
+          <button class="btn btn-danger" >Supprimer</button>
           </td>
         </tr>
         </tbody>
